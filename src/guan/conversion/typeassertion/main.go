@@ -10,7 +10,7 @@ func main() {
 	b = int64(a)
 	fmt.Printf("---- %T \n", b)
 
-	// 类型断言 type alert
+	// 类型断言 type assertion
 	var i interface{} = 11
 	j := i.(int)
 	fmt.Println("---- ", j)
