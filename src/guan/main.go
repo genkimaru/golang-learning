@@ -12,7 +12,4 @@ func main() {
 
 	fmt.Println(mystruct.JsonText)
 
-	for {
-
-	}
 }
