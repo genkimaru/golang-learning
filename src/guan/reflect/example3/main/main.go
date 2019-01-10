@@ -15,8 +15,8 @@ func printInfo(i interface{}) {
 	fmt.Printf(" type : %T \n address : %p \n value %v \n \n \n", i, &i, i)
 }
 
-func (s MyStruct) Add() {
-
+func (s MyStruct) Add(a, b int) int {
+	return a + b
 }
 
 func main() {
@@ -49,4 +49,7 @@ func main() {
 
 	fmt.Printf(" %v ", s)
 
+	result := tools.CallMethod(&s, "Add", 100, 200)
+	fmt.Println(result)
+	//result.(int[])
 }

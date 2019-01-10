@@ -1,33 +1,14 @@
-package main
+package tools
 
 import (
 	"fmt"
-	"html/template"
 	"reflect"
 	"strconv"
 	"strings"
+	"text/template"
 )
 
-func main() {
-
-	str := strings.Trim(`{{ "hello" 4 | repeat }}`, "{ }")
-	fmt.Println(str)
-	funcs := template.FuncMap{
-		"trim":    strings.Trim,
-		"lower":   strings.ToLower,
-		"repeat":  strings.Repeat,
-		"replace": strings.Replace,
-	}
-	fmt.Println(eval(`{{ "hello" 4 | repeat }}`, funcs))
-	fmt.Println(eval(`{{ "Hello-World" | lower }}`, funcs))
-	fmt.Println(eval(`{{ "foobarfoo" "foo" "bar" -1 | replace }}`, funcs))
-	fmt.Println(eval(`{{ "-^-Hello-^-" "-^" | trim }}`, funcs))
-}
-
-// evaluate an expression. note that this implemetation is assuming that the
-// input is valid, and also very limited. for example, whitespaces are not allowed
-// inside a quoted string.
-func eval(s string, funcs template.FuncMap) (string, error) {
+func Eval(s string, funcs template.FuncMap) (string, error) {
 	args, name := parseArgs(s)
 	fn, ok := funcs[name]
 	if !ok {

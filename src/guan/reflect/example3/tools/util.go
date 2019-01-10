@@ -146,6 +146,14 @@ func SetValueForField(obj interface{}, fieldName string, target int64) {
 }
 
 //反射调用方法
-func CallMethod(obj interface{}, methodName string) {
+func CallMethod(obj interface{}, methodName string, param1 int, param2 int) int {
+	v := reflect.ValueOf(obj)
+	vv := v.Elem()
+	fmt.Println(vv.Kind())
+	method := vv.MethodByName(methodName)
+	fmt.Println(method.Kind())
+	args := []reflect.Value{reflect.ValueOf(param1), reflect.ValueOf(param2)}
+	result := method.Call(args)
+	return result[0].Interface().(int)
 
 }
