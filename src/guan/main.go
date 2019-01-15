@@ -2,14 +2,13 @@ package main
 
 import (
 	"fmt"
-	"guan/json/mystruct"
-	"guan/mypkg/utils"
+
+	"github.com/codegangsta/inject"
 )
 
 func main() {
 
-	utils.Add()
+	injector := inject.New()
 
-	fmt.Println(mystruct.JsonText)
-
+	fmt.Println(injector)
 }
