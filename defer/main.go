@@ -9,8 +9,10 @@
 
 package main
 
-import "errors"
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 // It's possible to use custom types as `error`s by
 // implementing the `Error()` method on them. Here's a

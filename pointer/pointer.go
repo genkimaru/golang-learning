@@ -1,4 +1,4 @@
-package pointer
+package main
 
 import "fmt"
 
@@ -20,7 +20,6 @@ func ZeroPointer(i *int) {
 	*i = 0
 }
 
-
 //SetValue doc
 func (person Person) SetValue(name string, age int) Person {
 
@@ -28,7 +27,6 @@ func (person Person) SetValue(name string, age int) Person {
 	person.Age = age
 	return person
 }
-
 
 //SetValue2 doc
 func (person *Person) SetValue2(name string, age int) {
